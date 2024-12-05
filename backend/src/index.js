@@ -7,28 +7,26 @@ import cookieParser from "cookie-parser"; // Import cookie-parser
 import cors from 'cors';
 import path from 'path';
 import { app, server } from "./db/socket.js";
+
+
+
 dotenv.config();
 
-// Middleware
-app.use(express.json()); // Increase payload limit
-app.use(cookieParser()); // Use cookie-parser middlewar
-app.use(cors(
-  {
-    origin: 'http://localhost:5173',
-    credentials: true,
-  }
-
-))
-// Connect to the database and start the server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
-connectDB();
+app.use(express.json());
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
+app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes);
 
-// Register routes with correct base URL
-app.use('/api/auth', authRoutes);
-app.use('/api/messages', messageRoutes);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
@@ -37,7 +35,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-
 server.listen(PORT, () => {
-  console.log(`Server is running on PORT: ${PORT}`);
+  console.log("server is running on PORT:" + PORT);
+  connectDB();
 });
