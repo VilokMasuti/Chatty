@@ -7,9 +7,6 @@ import cookieParser from "cookie-parser"; // Import cookie-parser
 import cors from 'cors';
 import path from 'path';
 import { app, server } from "./db/socket.js";
-
-
-
 dotenv.config();
 
 const PORT = process.env.PORT;
@@ -39,3 +36,7 @@ server.listen(PORT, () => {
   console.log("server is running on PORT:" + PORT);
   connectDB();
 });
+
+
+
+
