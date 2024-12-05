@@ -10,7 +10,7 @@ import { app, server } from "./db/socket.js";
 dotenv.config();
 
 // Middleware
-app.use(express.json({ limit: '10mb' })); // Increase payload limit
+app.use(express.json()); // Increase payload limit
 app.use(cookieParser()); // Use cookie-parser middlewar
 app.use(cors(
   {
