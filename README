@@ -1,6 +1,7 @@
 ✨ Full Stack Realtime Chat App ✨
 
-![Chat App Screenshot](https://w7.pngwing.com/pngs/128/271/png-transparent-online-chat-computer-icons-chat-miscellaneous-orange-speech-balloon-thumbnail.png)
+
+
 🔥 Highlights
 🌟 Tech stack: MERN (MongoDB, Express.js, React, Node.js) + Socket.io + TailwindCSS + Daisy UI
 🎃 Authentication & Authorization: Secure login using JWT (JSON Web Token)
@@ -33,6 +34,7 @@ Start
 bash
 Copy code
 npm start
+
 🌐 Deployment
 Follow the detailed deployment guide included in the documentation to host your app FOR FREE on platforms like Vercel, Netlify, or Heroku.
 
